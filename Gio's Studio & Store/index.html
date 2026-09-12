@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA's Studio & Store</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 fill=%22%230b0b0b%22/><text x=%2250%%22 y=%2255%%22 font-size=%2250%22 font-family=%22system-ui, sans-serif%22 font-weight=%22bold%22 fill=%22%23ffffff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>A</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="header">
+        <div class="logo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">AURA.</div>
+        <nav class="nav-links" id="navLinks">
+            <a href="#shop" onclick="toggleMobileMenu()">Shop</a>
+            <a href="#collections" onclick="toggleMobileMenu()">Collections</a>
+            <a href="#studio" onclick="toggleMobileMenu()">Studio</a>
+            <a href="#about" onclick="toggleMobileMenu()">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="cart-btn" onclick="toggleCart()">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"></path></svg>
+                <span>Bag</span>
+                <span class="cart-badge" id="cart-count">0</span>
+            </button>
+            <button class="menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge">New Release // Edition 01</span>
+            <h1>Engineered for the Modern Era</h1>
+            <p>Minimalist apparel and technical objects designed with uncompromising precision.</p>
+            <a href="#shop" class="hero-cta">Explore Catalog</a>
+        </div>
+    </section>
+
+    <!-- Main Products Grid (Shop Section with Filters) -->
+    <main class="main-container" id="shop">
+        <div class="section-header">
+            <div>
+                <h2>Featured Catalog</h2>
+                <p>Limited production runs, crafted from heavy-grade materials.</p>
+            </div>
+            <!-- Category Filters -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProducts('all', this)">All</button>
+                <button class="filter-btn" onclick="filterProducts('outerwear', this)">Outerwear</button>
+                <button class="filter-btn" onclick="filterProducts('trousers', this)">Trousers</button>
+                <button class="filter-btn" onclick="filterProducts('gear', this)">Gear</button>
+            </div>
+        </div>
+        
+        <div class="product-grid" id="product-grid">
+            
+            <div class="product-card" data-category="outerwear">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=600&auto=format&fit=crop&q=60" alt="Kinetic Shell Jacket">
+                </div>
+                <h3>Kinetic Shell Jacket</h3>
+                <p class="price">$240.00</p>
+                <!-- Size Selector -->
+                <div class="size-selector">
+                    <span class="size-option selected" onclick="selectSize(this)">S</span>
+                    <span class="size-option" onclick="selectSize(this)">M</span>
+                    <span class="size-option" onclick="selectSize(this)">L</span>
+                    <span class="size-option" onclick="selectSize(this)">XL</span>
+                </div>
+                <button onclick="addToCart('Kinetic Shell Jacket', 240, this)">Add to Bag</button>
+            </div>
+
+            <div class="product-card" data-category="trousers">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=600&auto=format&fit=crop&q=60" alt="Modular Cargo Trousers">
+                </div>
+                <h3>Modular Cargo Trousers</h3>
+                <p class="price">$160.00</p>
+                <div class="size-selector">
+                    <span class="size-option selected" onclick="selectSize(this)">S</span>
+                    <span class="size-option" onclick="selectSize(this)">M</span>
+                    <span class="size-option" onclick="selectSize(this)">L</span>
+                    <span class="size-option" onclick="selectSize(this)">XL</span>
+                </div>
+                <button onclick="addToCart('Modular Cargo Trousers', 160, this)">Add to Bag</button>
+            </div>
+
+            <div class="product-card" data-category="gear">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=60" alt="Tactical Crossbody Pack">
+                </div>
+                <h3>Tactical Crossbody Pack</h3>
+                <p class="price">$95.00</p>
+                <div class="size-selector">
+                    <span class="size-option selected" onclick="selectSize(this)">OS</span>
+                </div>
+                <button onclick="addToCart('Tactical Crossbody Pack', 95, this)">Add to Bag</button>
+            </div>
+
+            <div class="product-card" data-category="outerwear">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&auto=format&fit=crop&q=60" alt="Technical Oversized Tee">
+                </div>
+                <h3>Technical Oversized Tee</h3>
+                <p class="price">$75.00</p>
+                <div class="size-selector">
+                    <span class="size-option selected" onclick="selectSize(this)">S</span>
+                    <span class="size-option" onclick="selectSize(this)">M</span>
+                    <span class="size-option" onclick="selectSize(this)">L</span>
+                    <span class="size-option" onclick="selectSize(this)">XL</span>
+                </div>
+                <button onclick="addToCart('Technical Oversized Tee', 75, this)">Add to Bag</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Collections Section -->
+    <section class="collections-section" id="collections">
+        <h2>Curated Series</h2>
+        <div class="collection-grid">
+            <div class="collection-banner">
+                <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Heavy Outerwear">
+                <div class="banner-content">
+                    <h3>Heavy Outerwear</h3>
+                    <p>Built for harsh urban climates.</p>
+                </div>
+            </div>
+            <div class="collection-banner">
+                <img src="https://images.pexels.com/photos/5449712/pexels-photo-5449712.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Technical Gear">
+                <div class="banner-content">
+                    <h3>Technical Gear</h3>
+                    <p>Carrying utility items securely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio / About Section -->
+    <section class="about-section" id="studio">
+        <div class="about-content" id="about">
+            <h2>The Studio Philosophy</h2>
+            <p>AURA operates at the intersection of minimalist industrial design and functional utility. Every piece undergoes rigorous prototyping to ensure maximum durability, timeless aesthetic, and zero compromise on everyday wearability.</p>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-box">
+            <h2>Join the Inner Circle</h2>
+            <p>Receive early access to limited edition drops and private viewings.</p>
+            <form onsubmit="subscribeNewsletter(event)" class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required id="newsletterEmail">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 AURA Studio. All rights reserved.</p>
+    </footer>
+
+    <!-- Cart Drawer / Sidebar -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Shopping Bag</h3>
+            <button class="close-drawer" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-text">Your bag is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">Item added to bag</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
